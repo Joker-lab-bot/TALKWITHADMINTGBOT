@@ -37,4 +37,31 @@ A powerful **Telegram support bot** that allows users to communicate directly wi
 ADMIN_IDS=12345,67890
 MONGO_URL=railway_mongo_url
 DB_NAME=telegram_bot
-6. 
+5. Deploy 🎉
+
+---
+
+## 🖥 Local Run
+
+```bash
+pip install -r requirements.txt
+cp .env.example .env
+python telegram_bot.py
+```
+---
+🔐 Commands
+User
+
+• /start
+
+• /help
+
+Admin
+
+• /addadmin <id>
+
+• /removeadmin <id>
+
+Broadcast from menu
+
+• Reply / Block / History buttons
