@@ -1,26 +1,3 @@
-"""
-Talk to Admin Telegram Bot - Single File Version
-A Telegram bot that allows users to communicate directly with admins.
-
-Features:
-- User-to-Admin messaging (admins see user info)
-- Admin reply via inline buttons
-- User blocking/unblocking
-- Broadcast messages to all users
-- Rate limiting (anti-spam)
-- Message logging (MongoDB)
-- Dynamic admin management
-
-Setup:
-1. Install: pip install python-telegram-bot python-dotenv motor
-2. Set environment variables (or create .env file):
-   - BOT_TOKEN=your_bot_token
-   - ADMIN_IDS=your_telegram_user_id
-   - MONGO_URL=mongodb://localhost:27017
-   - DB_NAME=telegram_bot
-3. Run: python telegram_bot.py
-"""
-
 import os
 import time
 import asyncio
@@ -47,12 +24,18 @@ load_dotenv()
 
 # ==================== CONFIGURATION ====================
 
-BOT_TOKEN = os.getenv('8051038168:AAE3p3tW9mFs5C21Yj6BVeOkH0nChR8BEFE', '')
-ADMIN_IDS = [int(x.strip()) for x in os.getenv('6753191265, 5817712676', '').split(',') if x.strip()]
-MONGO_URL = os.getenv('MONGO_URL', 'mongodb://localhost:27017')
-DB_NAME = os.getenv('DB_NAME', 'telegram_bot')
-RATE_LIMIT_MESSAGES = int(os.getenv('RATE_LIMIT_MESSAGES', '5'))
-RATE_LIMIT_WINDOW = int(os./getenv('RATE_LIMIT_WINDOW', '60'))
+BOT_TOKEN = os.getenv("BOT_TOKEN")
+ADMIN_IDS = [
+    int(x.strip())
+    for x in os.getenv("ADMIN_IDS", "").split(",")
+    if x.strip().isdigit()
+]
+
+MONGO_URL = os.getenv("MONGO_URL", "mongodb://localhost:27017")
+DB_NAME = os.getenv("", "telegram_bot")
+
+RATE_LIMIT_MESSAGES = int(os.getenv("RATE_LIMIT_MESSAGES", "5"))
+RATE_LIMIT_WINDOW = int(os.getenv("RATE_LIMIT_WINDOW", "60"))
 
 # Logging setup
 logging.basicConfig(
